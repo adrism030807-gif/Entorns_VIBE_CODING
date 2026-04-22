@@ -1,4 +1,3 @@
-# Entorns_VIBE_CODING
 # 🧙‍♂️ README: Microjoc RPG (Màgia i Captura)
 
 > **Document de presentació del projecte (README)** elaborat per a la fase inicial de desenvolupament. Aquest projecte és un RPG tàctic per torns desenvolupat a **Roblox Studio**.
