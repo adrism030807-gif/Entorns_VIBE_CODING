@@ -1,93 +1,78 @@
-# 🧙‍♂️ README: Microjoc RPG (Màgia i Captura)
+⚔️ README: Microjoc d'Acció i Supervivència 3D
+🔗 ENLLAÇ AL VÍDEO GAMEPLAY: https://docs.google.com/videos/d/1yVFRbYBxyr-SKrflJw3iBFJsBsKwJbYfI8NZBqn83x0/edit?usp=sharing
 
-> **Document de presentació del projecte (README)** elaborat per a la fase inicial de desenvolupament. Aquest projecte és un RPG tàctic per torns desenvolupat a **Roblox Studio**.
+Document de presentació del projecte (README) per a la fase final de desenvolupament. Aquest projecte és un joc d'acció en 3D en temps real desenvolupat a Roblox Studio, on el jugador explora un entorn i combat enemics de forma directa.
 
----
+📋 Índex
+Visió General
 
-## 📋 Índex
-1. [Visió General](#1-visió-general)
-2. [Jugabilitat i Regles](#2-jugabilitat-i-regles)
-3. [Abast i Límits del Projecte](#3-abast-i-límits-del-projecte)
-4. [Riscos i Viabilitat](#4-riscos-i-viabilitat)
-5. [Planificació i Eines](#5-planificació-i-eines)
+Controls i Jugabilitat
 
----
+Canvis en l'Abast del Projecte (Pivotatge)
 
-## 1. Visió General
+Riscos i Viabilitat Tècnica
 
-### 🎯 Tipus de microvideojoc
-Joc de combat tàctic per torns amb col·leccionisme lleuger i estructura lineal (Boss Rush / Seqüencial).
+Planificació i Eines
 
-### 💡 Definició de la idea
-Ets un jove mag que avança per una història lineal superant combats. Hi ha dos tipus d'enfrontaments:
-* **Mini-batalles:** Contra criatures màgiques. En derrotar-les, pots "capturar-les" perquè s'uneixin al teu equip (màxim 1 criatura invocada alhora).
-* **Batalles de Cap (Bosses):** Enemics més poderosos lligats a la història que **no** es poden capturar.
+1. Visió General
+🎯 Tipus de microvideojoc
+Joc d'acció en tercera persona (Hack and Slash / Exploració 3D) situat en un entorn tancat (una vila).
 
-### 🏆 Objectiu del joc
-Superar la seqüència completa de la història, gestionant estratègicament els atacs del teu mag i reclutant la criatura adequada en les mini-batalles prèvies per poder derrotar els Caps.
+💡 Definició de la idea
+Ets un aventurer que ha de sobreviure i netejar un poblat de l'aparició d'enemics (Zombis/Dummies). L'acció transcorre en temps real, aprofitant el motor físic de Roblox per al moviment i el combat cos a cos.
 
----
+🏆 Objectiu del joc
+Equipar-se l'arma, explorar l'entorn dissenyat i derrotar tots els enemics presents al mapa abans que ells redueixin la teva vida a zero.
 
-## 2. Jugabilitat i Regles
+2. Controls i Jugabilitat
+🎮 Interacció del Jugador
+El joc abandona els menús estàtics per oferir un control complet i fluid sobre l'avatar en un espai tridimensional.
 
-### 🎮 Rol del jugador
-El jugador controla el seu **Mag principal** i la seva **Criatura aliada** (si en té una). A cada torn, mitjançant la interfície gràfica (GUI), decidirà quins atacs o curacions utilitzar. En finalitzar una mini-batalla amb èxit, prendrà la decisió de si vol reclutar la criatura vençuda (substituint l'anterior).
+⌨️ Controls de PC:
 
-### ⚖️ Regles i Condicions
-* **Sistema de Torns:** Combat per torns estrictes. Si tens una criatura, tant el mag com la criatura actuen en el mateix torn abans que l'enemic.
-* **Immunitat:** Els Caps Finals són immunes a la captura.
-* **Condició de Victòria:** Reduir a `0` la vida (HP) de l'enemic per avançar.
-* **Condició de Derrota:** La vida del teu Mag principal arriba a `0` (independentment de si la teva criatura continua viva).
+W, A, S, D: Moure el personatge.
 
-### 🔄 Bucle Principal (Core Loop)
-1. Lectura d'un fragment d'història.
-2. Inici d'una **mini-batalla** contra una criatura.
-3. Decisió de captura en guanyar.
-4. Avanç de la història.
-5. Inici de la **batalla contra el Cap** (Boss).
-6. Es repeteix el cicle o s'acaba el joc.
+Barra Espaiadora: Saltar.
 
----
+Tecles Numèriques (1, 2...): Equipar o desequipar l'espasa de l'inventari.
 
-## 3. Abast i Límits del Projecte
+Clic Esquerre del Ratolí: Atacar amb l'espasa.
 
-### 🧠 Repte principal i Dificultat
-El repte recau en la **planificació tàctica**: el jugador haurà de deduir quina criatura reclutar en les mini-batalles per tenir un avantatge estratègic contra el Cap següent. Nivell de dificultat: **Mitjà**.
+Ratolí (Moure): Controlar la càmera i la direcció de la visió.
 
-### 🚫 Què NO inclourà el joc (Out of Scope)
-Per mantenir la viabilitat tècnica i complir amb els terminis, s'exclou explícitament:
-- **No** hi haurà exploració de món obert (l'avanç és mitjançant menús i escenes tancades).
-- **No** es poden capturar els Caps (Bosses).
-- **No** hi haurà inventari d'objectes complex ni evolucions de les criatures.
+3. Canvis en l'Abast del Projecte (Pivotatge)
+🔄 Adaptació del disseny original
+La proposta inicial d'aquest projecte era un RPG per torns de captura de criatures. Durant la fase de desenvolupament (Fase 2: Backend), els scripts de control de torns i el sistema de combat van presentar errors greus d'estat (state machine).
+Per garantir una entrega funcional i un producte jugable, s'ha pres la decisió de disseny (pivot) de transformar-lo en un joc d'acció en temps real.
 
----
+🚫 Què NO inclou el joc (Out of Scope actual)
 
-## 4. Riscos i Viabilitat
+Sistema de torns i menús d'atac.
 
-### ⚠️ Riscos Tècnics Reals
-1. **Lògica de Torns Múltiples:** Programar correctament la màquina d'estats a Roblox per gestionar escenaris 2v1 (Mag + Criatura vs Boss) sense bloquejos.
-2. **Sistema de "Tags" (Etiquetes):** Diferenciar programàticament un "Enemic Normal" (mostra botó de captura) d'un "Boss" (avança la història).
-3. **Gestió del Reclutament (Persistència):** Aconseguir que el sistema de dades guardi quina criatura has escollit perquè aparegui correctament al següent combat.
+Reclutament d'enemics.
 
-### 🤖 Exploració amb IA
-S'ha utilitzat IA en fase de *brainstorming* i estructuració:
-* *Prompt 1:* "Voy a hacer un proyecto nuevo en Roblox Studio, quiero hacer un combate por turnos o una historia, yo haré lo visual y necesito ayuda."
-* *Prompt 2:* "Ayúdame a completar el documento. Voy a hacer una mezcla entre Pokémon y Harry Potter, quiero que los boss no sean capturables, hacer mini batallas por la historia donde puedas reclutar."
+Sistema d'inventari complex (es simplifica a una arma principal).
 
-### ✅ Justificació de Viabilitat
-Aquest disseny és viable perquè utilitza un sistema de progressió lineal. En eliminar l'exploració lliure i l'inventari, l'esforç de programació es destina al 100% a aplicar **Clean Code** i dissenyar una arquitectura sòlida per al sistema de combat i interfícies.
+4. Riscos i Viabilitat
+⚠️ Resolució de Riscos Tècnics
+El principal risc tecnològic era l'error en els Scripts de l'arma personalitzada (Weapon.Sword). La solució aplicada ha estat netejar el repositori (StarterPack i StarterPlayerScripts) i implementar la "Classic Sword" oficial de l'ecosistema Roblox, garantint així un 100% de fiabilitat en les caixes de col·lisió (hitboxes) i l'animació de dany (Humanoid Taking Damage).
 
----
+🤖 Exploració amb IA
+S'ha utilitzat IA (Gemini) en fase de troubleshooting (resolució de problemes) i debugging. La IA ha estat clau per:
 
-## 5. Planificació i Eines
+Identificar per què els Scripts originals fallaven a l'hora de rebre els "Inputs" del jugador.
 
-### 🗺️ Mini Pla de Fases
-- [x] **Fase 1:** Disseny i aprovació d'aquest README.
-- [ ] **Fase 2:** Programació Backend (Arquitectura de Dades, Classes de Lluita).
-- [ ] **Fase 3:** Disseny Frontend (GUI de combat, barres de vida, botons).
-- [ ] **Fase 4:** Integració del Core Loop i Debugging.
+Aconsellar el pivotatge a la "Classic Sword" per complir amb el deadline de l'entrega.
 
-### 🛠️ Eines Previstes
-* **Roblox Studio:** Motor de desenvolupament principal i gestor de GUI.
-* **Luau:** Llenguatge de programació per a la lògica de servidor (Backend) i client (Frontend).
-* **IA Assistida (Gemini):** Com a eina de suport per planificar l'arquitectura del codi i refactorització.
+Guiar en la neteja d'arxius residuals al motor de Roblox.
+
+5. Planificació i Eines
+🛠️ Eines Utilitzades
+
+Roblox Studio: Motor 3D de desenvolupament principal, gestor d'entorn i físiques.
+
+Roblox Toolbox: Ús de models estàndard (Zombies/Dummies i Espasa Clàssica) per agilitzar el desenvolupament de la jugabilitat.
+
+Markdown: Per a l'estructuració d'aquesta documentació.
+
+OBS / Eina de Captura: Per a la gravació del Gameplay final de demostració.
